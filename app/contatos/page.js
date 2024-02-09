@@ -1,15 +1,19 @@
-import Link from "next/link";
 import styles from './contatos.module.css'
+import Link from "next/link";
 
-async function buscarContatos() {
-  try {
-    const resposta = await fetch("http://localhost:3000/api/contatos")
-    return await resposta.json()
-  } catch (erro) {
-    console.erro(erro)
-    return []
+const baseUrl =
+  (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000");
+
+  async function buscarContatos() {
+    try {
+      const resposta = await fetch(`${baseUrl}/api/contatos`, { cache: 'no-store' });
+      // const resposta = await fetch("http://localhost:3000/api/contatos")
+      return await resposta.json();
+    } catch (erro) {
+      console.error(erro);
+      return [];
+    }
   }
-}
 
 export default async function Page() {
   const contatos = await buscarContatos()

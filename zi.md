@@ -245,6 +245,9 @@ git commit -m "party 3"
 git push -u origin main
 
 
+npm install dotenv
+
+
 ### vercel
 https://vercel.com/contact
   fsouza.marcell@gmail.com
@@ -255,4 +258,45 @@ https://vercel.com/contact
     address: '127.0.0.1',
     port: 3000
 
-    
+
+https://vercel.com/marcell-souzas-projects/app-next-js-start/stores
+
+npm install -g vercel
+which vercel
+
+vercel link
+vercel login (para trocar o login)
+  app-next-js-start
+
+vercel env pull .env.development.local
+
+https://www.beekeeperstudio.io/download/?ext=exe&arch=&type=portable&edition=ultimate
+
+nome do banco: verceldb
+
+# Criar a tabela
+CREATE TABLE public.contatos (
+	id serial4 NOT NULL,
+	nome varchar(100) NULL,
+	endereco text NULL,
+	telefone text NULL,
+	CONSTRAINT contatos_pkey PRIMARY KEY (id)
+);
+
+npm install @vercel/postgres
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
