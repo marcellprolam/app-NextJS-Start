@@ -196,9 +196,6 @@ Erro servidor: 500 > 599
 Manaus, 09 February, 2024
 ------------------------------------------------------------------------------------------------------------------------------
 
-https://vercel.com/contact
-  marcell.ramos
-
 ### github
 
 https://github.com/marcellprolam/app-NextJS-Start
@@ -216,6 +213,7 @@ git branch -M master
 git remote add origin https://github.com/marcellprolam/app-NextJS-Start.git
 git remote add origin git@github.com:marcellprolam/app-NextJS-Start.git
 
+USEI main
 git push -u origin main
 git push -u origin master
 
@@ -227,9 +225,34 @@ git remote -v
 git remote remove origin
 git remote add origin git@github.com:marcellprolam/app-NextJS-Start.git
 
-Acesso:
+Acesso testar:
   ssh -T git@github.com
   Hi souzamarcell! You've successfully authenticated, but GitHub does not provide shell access.
 
+COMANDO: git push --set-upstream origin master
+ERRO: remote: Permission to marcellprolam/teste-vscode.git denied to ProlamManaus.
+fatal: unable to access 'https://github.com/marcellprolam/teste-vscode.git/': 
+The requested URL returned error: 403
+
+solution: Cria a chave novamente.
 
 
+## Installation
+git add .
+git status
+git branch -m main
+git commit -m "party 3"
+git push -u origin main
+
+
+### vercel
+https://vercel.com/contact
+  fsouza.marcell@gmail.com
+
+ errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 3000
+
+    
