@@ -11,6 +11,11 @@ export default function Criar() {
   const router = useRouter();
 
   const [nome, setNome] = useState("");
+  const [estado, setEstado] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [numero, setNumero] = useState("");
+  const [tipo, setTipo] = useState("");
   const [endereco, setEndereco] = useState("");
   const [telefone, setTelefone] = useState("");
 
@@ -18,7 +23,7 @@ export default function Criar() {
     event.preventDefault();
 
     const contato = {
-      nome, endereco, telefone
+      nome, endereco, telefone, estado, cidade, bairro, numero, tipo
     }
 
     // const resposta = await fetch("http://localhost:3000/api/contatos", {
@@ -47,16 +52,62 @@ export default function Criar() {
             <input
               value={nome}
               onChange={(event) => setNome(event.target.value)}
-              required // Nome, não pode ficar em branco
+              // onChange={(event) => setNome(event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1))}
+              required // não eixar ficar em branco
               type="text"
               maxLength={100} />
+          </div>
+          <div>
+            <label>Estado: </label>
+            <input
+              value={estado}
+              onChange={(event) => setEstado(event.target.value.toUpperCase())}
+              required // não eixar ficar em branco
+              type="text"
+              maxLength={2} />
+          </div>
+          <div>
+            <label>Cidade: </label>
+            <input
+              value={cidade}
+              onChange={(event) => setCidade(event.target.value.toUpperCase())}
+              required // não eixar ficar em branco
+              type="text"
+              maxLength={30} />
+          </div>
+          <div>
+            <label>Bairro: </label>
+            <input
+              value={bairro}
+              onChange={(event) => setBairro(event.target.value.toUpperCase())}
+              required // não eixar ficar em branco
+              type="text"
+              maxLength={50} />
+          </div>
+          <div>
+            <label>Numero: </label>
+            <input
+              value={numero}
+              onChange={(event) => setNumero(event.target.value.toUpperCase())}
+              required // não eixar ficar em branco
+              type="text"
+              maxLength={10} />
+          </div>
+          <div>
+            <label>tipo: </label>
+            <input
+              value={tipo}
+              onChange={(event) => setTipo(event.target.value.toUpperCase())}
+              required // não eixar ficar em branco
+              type="text"
+              maxLength={2} />
           </div>
           <div>
             <label>Endereco: </label>
             <input
               value={endereco}
               onChange={(event) => setEndereco(event.target.value)}
-              required // endereco, não pode ficar em branco
+              required // não eixar ficar em branco
               type="text"
               maxLength={100} />
           </div>
@@ -65,8 +116,9 @@ export default function Criar() {
             <input
               value={telefone}
               onChange={(event) => setTelefone(event.target.value)}
-              required // telefone, não pode ficar em branco
-              type="number" />
+              required // não eixar ficar em branco
+            // type="number" 
+            />
 
           </div>
           <button type="submit">Criar</button>

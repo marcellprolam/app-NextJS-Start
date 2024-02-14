@@ -25,34 +25,44 @@ export default async function Page() {
         <table className={styles.contatos}>
           <thead>
             <tr>
-              <th>Editar</th>
               <th>Nome</th>
+              <th>Cidade/UF</th>
+              <th>Bairro</th>
+              <th>Numero</th>
+              <th>Tipo</th>
               <th>Endereço</th>
               <th>Telefone</th>
+              <th>Data/Hora</th>
+              <th>🛠</th>
             </tr>
           </thead>
           <tbody>
             {
               contatos.map((contato) =>
                 <tr key={contato.id}>
-                  <td>
-                    <Link href={`/contatos/${contato.id}/editar`}>
-                      Editar
-                    </Link> | {" "}
-                    <Link href={`/contatos/${contato.id}/excluir`}>
-                      Excluir
-                    </Link>
-                  </td>
                   <td>{contato.nome}</td>
+                  <td>{contato.cidade}<br />{contato.estado}</td>
+                  <td>{contato.bairro}</td>
+                  <td>{contato.numero}</td>
+                  <td>{contato.tipo}</td>
                   <td>{contato.endereco}</td>
                   <td>{contato.telefone}</td>
+                  <td>{contato.datas}<br />{contato.horas}</td>
+                  <td>
+                    <Link href={`/contatos/${contato.id}/editar`}>
+                      ✍
+                    </Link> | {" "}
+                    <Link href={`/contatos/${contato.id}/excluir`}>
+                      ❌
+                    </Link>
+                  </td>
                 </tr>
               )
             }
           </tbody>
           <tfoot>
             <tr>
-              <td colSpan="4">Total contatos: {contatos.length}</td>
+              <td colSpan="9">Total contatos: {contatos.length}</td>
             </tr>
           </tfoot>
         </table>

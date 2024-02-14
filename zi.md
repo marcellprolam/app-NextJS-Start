@@ -156,7 +156,8 @@ git branch -M main
 git remote add origin https://github.com/pablotdv/nexjs-primeiros-passos.git push -u origin main 
 
 
-### Manobra tabela A para tabela B
+### Manobra tabela A para tabela B (AUTOINCREMENT)
+==================================================
 
 1. Crie uma nova tabela com a estrutura desejada, incluindo a coluna id como autoincrementada:
 CREATE TABLE contatos_new (
@@ -245,7 +246,7 @@ solution: Cria a chave novamente.
 git add .
 git status
 git branch -m main
-git commit -m "party 3-1"
+git commit -m "party 4-1"
 git push -u origin main
 
 
@@ -304,14 +305,39 @@ NextJS
   - Edição e exclusão de contatos_Full-HD_60fps
 
 
+NextJS 
+  - Primeiros passos 
+  - Parte 5 
+  - Adição de novos campos e pesquisa por 
 
 
+INSERT INTO public.contatos (nome, endereco, telefone) VALUES ('Contato 200', 'Rua 200', '+1 55 98765-98201');
+INSERT INTO public.contatos (nome, endereco, telefone) VALUES ('Contato 201', 'Rua 201', '+1 55 98765-98202');
+INSERT INTO public.contatos (nome, endereco, telefone) VALUES ('Contato 202', 'Rua 202', '+1 55 98765-98203');
 
+# Adicinar novos campos:
 
+# Adicinar campo estado:
+alter table contatos
+add estado text null;
 
+# Adicinar para todos os campos estado 'AM':
+update contatos
+set estado = 'AM';
 
+# Adicinar demais campo:
+alter table contatos
+add cidade text null;
+alter table contatos
+add bairro text null;
+alter table contatos
+add numero text null;
+alter table contatos
+add tipo text null;
 
+ALTER TABLE public.contatos
+ADD datas TEXT DEFAULT to_char(current_date, 'YYYY-MM-DD') NULL;
 
-
-
+ALTER TABLE public.contatos
+ADD horas TEXT DEFAULT to_char(current_timestamp, 'HH24:MI:SS') NULL;
 
