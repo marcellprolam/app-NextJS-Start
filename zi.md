@@ -1,5 +1,7 @@
-Manaus, 07 February, 2024
-------------------------------------------------------------------------------------------------------------------------------
+### Manaus, 07 February, 2024
+=============================
+
+
 
 ### nvm-windows
   https://github.com/coreybutler/nvm-windows
@@ -54,6 +56,7 @@ Manaus, 07 February, 2024
   √ Would you like to customize the default import alias (@/*)? ... No / Yes
 
   npm run dev
+  ===========
 
 CSS
 https://www.w3schools.com/css/css_navbar.asp
@@ -237,18 +240,19 @@ The requested URL returned error: 403
 solution: Cria a chave novamente.
 
 
-## Installation
+## github - Basic
+=================
 git add .
 git status
 git branch -m main
-git commit -m "party 3"
+git commit -m "party 3-1"
 git push -u origin main
 
 
 npm install dotenv
 
-
 ### vercel
+==========
 https://vercel.com/contact
   fsouza.marcell@gmail.com
 
@@ -270,6 +274,10 @@ vercel login (para trocar o login)
 
 vercel env pull .env.development.local
 
+
+https://app-next-js-start.vercel.app/
+
+
 https://www.beekeeperstudio.io/download/?ext=exe&arch=&type=portable&edition=ultimate
 
 nome do banco: verceldb
@@ -287,6 +295,13 @@ npm install @vercel/postgres
 
 
 
+### Manaus, 14 February, 2024
+=============================
+
+NextJS 
+  - Primeiros passos 
+  - Parte 4 
+  - Edição e exclusão de contatos_Full-HD_60fps
 
 
 

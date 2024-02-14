@@ -47,8 +47,8 @@ export default function Criar() {
             <input
               value={nome}
               onChange={(event) => setNome(event.target.value)}
-              type="text"
               required // Nome, não pode ficar em branco
+              type="text"
               maxLength={100} />
           </div>
           <div>
@@ -56,6 +56,7 @@ export default function Criar() {
             <input
               value={endereco}
               onChange={(event) => setEndereco(event.target.value)}
+              required // endereco, não pode ficar em branco
               type="text"
               maxLength={100} />
           </div>
@@ -64,7 +65,9 @@ export default function Criar() {
             <input
               value={telefone}
               onChange={(event) => setTelefone(event.target.value)}
+              required // telefone, não pode ficar em branco
               type="number" />
+
           </div>
           <button type="submit">Criar</button>
           {/* <button className={styles.espacamento}> */}

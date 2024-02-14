@@ -4,16 +4,16 @@ import Link from "next/link";
 const baseUrl =
   (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000");
 
-  async function buscarContatos() {
-    try {
-      const resposta = await fetch(`${baseUrl}/api/contatos`, { cache: 'no-store' });
-      // const resposta = await fetch("http://localhost:3000/api/contatos")
-      return await resposta.json();
-    } catch (erro) {
-      console.error(erro);
-      return [];
-    }
+async function buscarContatos() {
+  try {
+    const resposta = await fetch(`${baseUrl}/api/contatos`, { cache: 'no-store' });
+    // const resposta = await fetch("http://localhost:3000/api/contatos")
+    return await resposta.json();
+  } catch (erro) {
+    console.error(erro);
+    return [];
   }
+}
 
 export default async function Page() {
   const contatos = await buscarContatos()
@@ -25,6 +25,7 @@ export default async function Page() {
         <table className={styles.contatos}>
           <thead>
             <tr>
+              <th>Editar</th>
               <th>Nome</th>
               <th>Endereço</th>
               <th>Telefone</th>
@@ -34,6 +35,14 @@ export default async function Page() {
             {
               contatos.map((contato) =>
                 <tr key={contato.id}>
+                  <td>
+                    <Link href={`/contatos/${contato.id}/editar`}>
+                      Editar
+                    </Link> | {" "}
+                    <Link href={`/contatos/${contato.id}/excluir`}>
+                      Excluir
+                    </Link>
+                  </td>
                   <td>{contato.nome}</td>
                   <td>{contato.endereco}</td>
                   <td>{contato.telefone}</td>
@@ -43,7 +52,7 @@ export default async function Page() {
           </tbody>
           <tfoot>
             <tr>
-              <td colSpan="3">Total contatos: {contatos.length}</td>
+              <td colSpan="4">Total contatos: {contatos.length}</td>
             </tr>
           </tfoot>
         </table>
