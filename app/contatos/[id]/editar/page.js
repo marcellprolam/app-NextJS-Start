@@ -9,8 +9,7 @@ const baseUrl =
 
 async function buscarContato(id) {
     try {
-        const resposta = await fetch(`${baseUrl}/api/contatos/${id}`,
-            { cache: 'no-store' });
+        const resposta = await fetch(`${baseUrl}/api/contatos/${id}`, { cache: 'no-store' });
         return await resposta.json();
     } catch (erro) {
         console.error(erro);
@@ -20,8 +19,16 @@ async function buscarContato(id) {
 
 export default function Page({ params: { id } }) {
     const router = useRouter();
-    const [contato, setContato] =
-        useState({ nome: '', endereco: '', telefone: '', estado: '', cidade: '', bairro: '', numero: '', tipo: '' })
+    const [contato, setContato] = useState({
+        nome: '',
+        logradouro: '',
+        telefone: '',
+        estado: '',
+        cidade: '',
+        bairro: '',
+        numero: '',
+        tipo: '',
+    })
     useEffect(() => {
         async function fetchData() {
             const data = await buscarContato(id)
@@ -64,7 +71,6 @@ export default function Page({ params: { id } }) {
                             value={contato.nome}
                             name="nome"
                             onChange={handleChange}
-                            required // não deixar ficar em branco
                             type="text" />
                     </div>
                     <div>
@@ -73,9 +79,7 @@ export default function Page({ params: { id } }) {
                             value={contato.estado}
                             name="estado"
                             onChange={handleChange}
-                            required // não eixar ficar em branco
-                            type="text"
-                            maxLength={2} />
+                            type="text" />
                     </div>
                     <div>
                         <label>Cidade: </label>
@@ -83,9 +87,7 @@ export default function Page({ params: { id } }) {
                             value={contato.cidade}
                             name="cidade"
                             onChange={handleChange}
-                            required // não eixar ficar em branco
-                            type="text"
-                            maxLength={30} />
+                            type="text" />
                     </div>
                     <div>
                         <label>Bairro: </label>
@@ -93,9 +95,7 @@ export default function Page({ params: { id } }) {
                             value={contato.bairro}
                             name="bairro"
                             onChange={handleChange}
-                            required // não eixar ficar em branco
-                            type="text"
-                            maxLength={50} />
+                            type="text" />
                     </div>
                     <div>
                         <label>Numero: </label>
@@ -103,28 +103,25 @@ export default function Page({ params: { id } }) {
                             value={contato.numero}
                             name="numero"
                             onChange={handleChange}
-                            required // não eixar ficar em branco
-                            type="text"
-                            maxLength={10} />
-                    </div>
-                    <div>
-                        <label>tipo: </label>
-                        <input
-                            value={contato.tipo}
-                            name="tipo"
-                            onChange={handleChange}
-                            required // não eixar ficar em branco
-                            type="text"
-                            maxLength={2} />
-                    </div>
-                    <div>
-                        <label>Endereco: </label>
-                        <input
-                            value={contato.endereco}
-                            name="endereco"
-                            onChange={handleChange}
-                            required // não deixar ficar em branco
                             type="text" />
+                    </div>
+                    <div>
+                        <label>Logradouro: </label>
+                        <input
+                            value={contato.logradouro}
+                            name="logradouro"
+                            onChange={handleChange}
+                            type="text" />
+                    </div>
+                    <div>
+                        <label>Tipo: </label>
+                        <select
+                            value={contato.tipo}
+                            onChange={handleChange}>
+                            <option>Selecione</option>
+                            <option value="Pessoal">Pessoal</option>
+                            <option value="Profissional">Profissional</option>
+                        </select>
                     </div>
                     <div>
                         <label>Telefone: </label>
@@ -132,8 +129,7 @@ export default function Page({ params: { id } }) {
                             value={contato.telefone}
                             name="telefone"
                             onChange={handleChange}
-                            required // não deixar ficar em branco
-                        // type="number" 
+                        //   type="number" 
                         />
                     </div>
                     <button type="submit">Atualizar</button>

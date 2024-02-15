@@ -19,7 +19,7 @@ async function buscarContato(id) {
 
 export default function Page({ params: { id } }) {
     const router = useRouter();
-    const [contato, setContato] = useState({ nome: '', endereco: '', telefone: '', estado: '', cidade: '', bairro: '', numero: '', tipo: '' })
+    const [contato, setContato] = useState({ nome: '', logradouro: '', telefone: '', estado: '', cidade: '', bairro: '', numero: '', tipo: '' })
     useEffect(() => {
         async function fetchData() {
             const data = await buscarContato(id)
@@ -54,7 +54,7 @@ export default function Page({ params: { id } }) {
                     <p><strong>Bairro: </strong>{contato.bairro}</p>
                     <p><strong>Número: </strong>{contato.numero}</p>
                     <p><strong>Tipo: </strong>{contato.tipo}</p>
-                    <p><strong>Endereço: </strong>{contato.endereco}</p>
+                    <p><strong>Endereço: </strong>{contato.logradouro}</p>
                     <p><strong>Telefone: </strong>{contato.telefone}</p>
                 </div>
                 <button onClick={handleDelete}>Excluir</button>

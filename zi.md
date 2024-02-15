@@ -246,7 +246,7 @@ solution: Cria a chave novamente.
 git add .
 git status
 git branch -m main
-git commit -m "party 4-1"
+git commit -m "party 5-1"
 git push -u origin main
 
 
@@ -340,4 +340,11 @@ ADD datas TEXT DEFAULT to_char(current_date, 'YYYY-MM-DD') NULL;
 
 ALTER TABLE public.contatos
 ADD horas TEXT DEFAULT to_char(current_timestamp, 'HH24:MI:SS') NULL;
+
+
+### Manaus, 15 February, 2024
+=============================
+
+alter table contatos
+rename column endereco to logradouro;
 

@@ -16,14 +16,14 @@ export default function Criar() {
   const [bairro, setBairro] = useState("");
   const [numero, setNumero] = useState("");
   const [tipo, setTipo] = useState("");
-  const [endereco, setEndereco] = useState("");
+  const [logradouro, setLogradouro] = useState("");
   const [telefone, setTelefone] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const contato = {
-      nome, endereco, telefone, estado, cidade, bairro, numero, tipo
+      nome, logradouro, telefone, estado, cidade, bairro, numero, tipo
     }
 
     // const resposta = await fetch("http://localhost:3000/api/contatos", {
@@ -70,7 +70,7 @@ export default function Criar() {
             <label>Cidade: </label>
             <input
               value={cidade}
-              onChange={(event) => setCidade(event.target.value.toUpperCase())}
+              onChange={(event) => setCidade(event.target.value)}
               required // não eixar ficar em branco
               type="text"
               maxLength={30} />
@@ -79,7 +79,7 @@ export default function Criar() {
             <label>Bairro: </label>
             <input
               value={bairro}
-              onChange={(event) => setBairro(event.target.value.toUpperCase())}
+              onChange={(event) => setBairro(event.target.value)}
               required // não eixar ficar em branco
               type="text"
               maxLength={50} />
@@ -88,25 +88,26 @@ export default function Criar() {
             <label>Numero: </label>
             <input
               value={numero}
-              onChange={(event) => setNumero(event.target.value.toUpperCase())}
+              onChange={(event) => setNumero(event.target.value)}
               required // não eixar ficar em branco
               type="text"
               maxLength={10} />
           </div>
           <div>
             <label>tipo: </label>
-            <input
+            <select
               value={tipo}
-              onChange={(event) => setTipo(event.target.value.toUpperCase())}
-              required // não eixar ficar em branco
-              type="text"
-              maxLength={2} />
+              onChange={(event) => setTipo(event.target.value)}>
+              <option>Selecione</option>
+              <option value="Pessoal">Pessoal</option>
+              <option value="Profissional">Profissional</option>
+            </select>
           </div>
           <div>
-            <label>Endereco: </label>
+            <label>Logradouro: </label>
             <input
-              value={endereco}
-              onChange={(event) => setEndereco(event.target.value)}
+              value={logradouro}
+              onChange={(event) => setLogradouro(event.target.value)}
               required // não eixar ficar em branco
               type="text"
               maxLength={100} />
